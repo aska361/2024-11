@@ -1,0 +1,28 @@
+#include<stdio.h>
+//编写题目要求的函数
+/*********Begin*********/
+double s(double n){
+    double re;
+    if(n==1)
+    re=1.0/3;
+    else re=(n/(2*n+1))*s(n-1);
+    return re;
+}
+double sum(int i){
+    double en;
+    if(i==0) en=1;
+    else en=s(i)+sum(i-1);
+    return en;
+}
+/*********End**********/ 
+int main(void)
+{  
+    /*********Begin*********/
+    int i;double ans;
+    scanf("%d",&i);
+    ans=sum(i);
+    printf("%.10lf\n",ans);
+
+    /*********End**********/ 
+    return 0;
+}
