@@ -1,0 +1,15 @@
+//插入一个数使得数组是升序 
+#include <stdio.h>
+int main() {
+	int a[9]={2, 3, 4, 5 ,6 ,8, 10, 13}, m, *p = a + 7, i = 7;
+	scanf("%d", &m);
+	while (a[i] > m && i >= 0) {
+		a[i + 1] = a[i];
+		i--;
+	}
+	a[i + 1] = m;
+	for (i = 0; i < 9; i++) {
+		printf("%d ", a[i]);
+	}
+	return 0;
+}
