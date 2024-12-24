@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <string.h>
+int main() {
+	char str1[20], str2[20], str3[20], tm[20];
+	int i; 
+	fgets(str1, sizeof(str1), stdin);
+	fgets(str2, sizeof(str2), stdin);
+	fgets(str3, sizeof(str3), stdin);
+	if (strcmp(str1, str2) > 0) {
+		strcpy(tm, str1);
+		strcpy(str1, str2);
+		strcpy(str2, tm);
+	}
+		if (strcmp(str2, str3) > 0) {
+		strcpy(tm, str2);
+		strcpy(str2, str3);
+		strcpy(str3, tm);
+	}
+		if (strcmp(str1, str2) > 0) {
+		strcpy(tm, str1);
+		strcpy(str1, str2);
+		strcpy(str2, tm);
+	}
+	printf("\n");
+	printf("%s", str1);
+	printf("%s", str2);
+	printf("%s\n", str3);
+}
