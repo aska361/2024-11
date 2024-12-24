@@ -1,0 +1,27 @@
+#include <string.h>
+int main() {
+    char s[100], t[100];
+    fgets(s, sizeof(s), stdin);
+    fgets(t, sizeof(t), stdin);
+    int srs, srt, lens, lent, i, re;
+    lens = strlen(s);
+    lent = strlen(t);
+    re = -1;
+    for (srs = 0; lens - srs - 1 >= lent; srs++) {
+        srt = 0; i = 0;
+        while (s[srs] == t[srt] && t[srt]) {
+            i++;
+            srs++;
+            srt++;
+        }
+        if (i == lent){
+            re = srs - i;
+            printf("%d\n", re);
+        }
+        else 
+        srs = srs - i;
+    }
+    if (re == -1)
+    printf("%d", re);
+    return 0;
+}
