@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <string.h>
+void sort(char *p[], int a);
+int main() {
+	char *books[] = {
+		"college English",
+		"advanced math",
+		"shui ke!",
+		"C programming language",
+	};
+	int i = 0;
+	sort(books, 4);
+	for (; i < 4; i++) {
+		printf("%s\n", books[i]);
+	}
+	return 0;
+}
+void sort (char *p[], int a) {
+	int i, j;
+	char *t;
+	for (i = 0; i < a - 1; i++) {
+		for (j = 0; j < a - i - 1; j++) {
+			if (strcmp(p[j], p[j + 1]) > 0) {
+				t = p[j];
+				p[j] = p[j + 1];
+				p[j + 1] = t;
+			}
+		}
+	}
+}
