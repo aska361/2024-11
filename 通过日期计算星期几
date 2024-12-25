@@ -1,0 +1,63 @@
+#include <stdio.h> 
+int getWeek(int day)
+{
+	/**********Begin**********/
+	//分离day
+    int a,b,c,tm,sg=0,re=0;
+    c=day%10+(day/10)%10*10;
+    tm=day/100;
+    b=tm%10+tm/10%10*10;
+    tm=tm/100;//只剩下前面四位
+    a=tm;//年月日存放在abc
+    if(a%4==0&&a%100!=0||a%400==0)
+    sg=1;
+    for(int i=1900;i<a;i++){
+        if((i%4==0&&i%100!=0||i%400==0))
+        re=re+1;//1900与i相差的年份是闰年就多加一天
+        re=re+365;
+    }
+    int dayinmon[]={0,31,28+sg,31,30,31,30,31,31,30,31,30,31};
+    for(int i=1;i<b;i++){
+        re=re+dayinmon[i];
+    }
+    re=re+c;
+    return re%7;
+    
+    /**********End**********/
+}
+
+void printWeek(int w)
+{
+	/**********Begin**********/
+	int a;
+    a=getWeek(w);
+    if(a==0)
+    printf("Sun");
+    if(a==1)
+    printf("Mon");
+    if(a==2)
+    printf("Tue");
+    if(a==3)
+    printf("Wed");
+    if(a==4)
+    printf("Thu");
+    if(a==5)
+    printf("Fri");
+    if(a==6)
+    printf("Sat");
+
+
+
+
+
+	
+    /**********End**********/
+}
+int main()
+{
+	int date;
+   scanf("%d",&date);
+   int week = getWeek(date);
+   printWeek(week);
+	return 0;
+}
