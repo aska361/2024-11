@@ -1,0 +1,27 @@
+#include<stdio.h>
+int runnian(int ye){
+    if(ye%400==0||ye%4==0&&ye%100!=0)
+    return 1;
+    else return 0;
+}
+int dayinmon(int ye,int mon){
+    int tmon[]={0,31,28+runnian(ye),31,30,31,30,31,31,30,31,30,31};
+    return tmon[mon];
+}
+int calday(int ye,int mon,int day){
+    int sumday=0;
+    for(int i=1;i<mon;i++){
+        sumday=dayinmon(ye,i)+sumday;
+    }//把mon前面所有月份天数加起来
+    sumday=sumday+day;
+    return sumday;
+}
+int main(){
+    int ye,m1,d1,m2,d2,sum1,sum2,re;
+    scanf("%d%d%d%d%d",&ye,&m1,&d1,&m2,&d2);
+    sum1=calday(ye,m1,d1);
+    sum2=calday(ye,m2,d2);
+    re=sum2-sum1;
+    printf("%d",re);
+    return 0;
+}
