@@ -1,0 +1,44 @@
+#include<stdio.h>
+int oper(int n1, char op, int n2){
+    int re;
+    if (op == '+')
+    re = n1 + n2;
+    if (op == '-')
+    re = n1 - n2;
+    if (op == '*')
+    re = n1 * n2;
+    if (op == '/')
+    re = n1 / n2;
+    if (op == '%')
+    re = n1 % n2;
+
+    return re;
+
+}
+int fact(int x) {
+    int fc = 1;
+    for (int i = 1; i <= x; i++){
+        fc = i * fc;
+    }
+    return fc;
+}
+int main(){
+    int n1, n2, res;
+    char op;
+    while (scanf("%d %c",&n1,&op) == 2){
+        if (op == '!')
+        res = fact(n1);
+        else {
+            scanf("%d",&n2);
+            if ((op == '/'||op == '%')&&n2 == 0){
+                printf("error\n");
+                continue;
+            }
+            else 
+            res = oper(n1, op, n2);
+        }
+         printf("%d\n",res);
+    }
+   
+    return 0;
+}
