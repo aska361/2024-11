@@ -1,0 +1,21 @@
+#include <stdio.h>
+int countwords(char *p) {//p指向字符串第一个
+int i = 0, count = 0;
+while (*(p + i)) {
+    if (*(p + i) != ' ') {
+        for (; *(p + i) != ' ' && *(p + i); i++) ;//注意这里的条件啊
+             count++;
+    }
+    else 
+    i++;
+}
+return count;
+}
+int main() {
+    char ch[101];
+    fgets(ch, sizeof(ch), stdin);
+    int re;
+    re = countwords(ch);
+    printf("%d", re);
+    return 0;
+}
